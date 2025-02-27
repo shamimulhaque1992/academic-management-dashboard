@@ -3,27 +3,74 @@
     {
       "id": "1",
       "name": "John Doe",
-      "email": "john@example.com",
+      "email": "john.doe@university.edu",
       "year": 2,
       "gpa": 3.8,
       "department": "Computer Science",
-      "enrolledCourses": [
-        1,
-        2,
-        3
-      ]
+      "enrolledCourses": [1, 2, 3]
     },
     {
       "id": "2",
       "name": "Jane Smith",
-      "email": "jane@example.com",
+      "email": "jane.smith@university.edu",
       "year": 3,
       "gpa": 3.9,
       "department": "Electrical Engineering",
-      "enrolledCourses": [
-        2,
-        4
-      ]
+      "enrolledCourses": [2, 4, 5]
+    },
+    {
+      "id": "3",
+      "name": "Michael Johnson",
+      "email": "michael.j@university.edu",
+      "year": 2,
+      "gpa": 3.5,
+      "department": "Computer Science",
+      "enrolledCourses": [1, 2, 6]
+    },
+    {
+      "id": "4",
+      "name": "Emily Brown",
+      "email": "emily.b@university.edu",
+      "year": 4,
+      "gpa": 4.0,
+      "department": "Mathematics",
+      "enrolledCourses": [7, 8, 9]
+    },
+    {
+      "id": "5",
+      "name": "David Wilson",
+      "email": "david.w@university.edu",
+      "year": 1,
+      "gpa": 3.2,
+      "department": "Computer Science",
+      "enrolledCourses": [1, 10]
+    },
+    {
+      "id": "6",
+      "name": "Sarah Davis",
+      "email": "sarah.d@university.edu",
+      "year": 3,
+      "gpa": 3.7,
+      "department": "Physics",
+      "enrolledCourses": [11, 12, 13]
+    },
+    {
+      "id": "7",
+      "name": "James Miller",
+      "email": "james.m@university.edu",
+      "year": 2,
+      "gpa": 3.4,
+      "department": "Electrical Engineering",
+      "enrolledCourses": [4, 5, 14]
+    },
+    {
+      "id": "8",
+      "name": "Emma Wilson",
+      "email": "emma.w@university.edu",
+      "year": 4,
+      "gpa": 3.9,
+      "department": "Mathematics",
+      "enrolledCourses": [7, 8, 15]
     }
   ],
   "courses": [
@@ -31,64 +78,278 @@
       "id": "1",
       "name": "Introduction to Programming",
       "code": "CS101",
-      "facultyId": 1,
-      "enrollmentCount": 30,
+      "facultyId": "1",
+      "enrollmentCount": 45,
       "credits": 3,
       "department": "Computer Science"
     },
     {
       "id": "2",
-      "name": "Data Structures",
+      "name": "Data Structures and Algorithms",
       "code": "CS201",
-      "facultyId": 1,
-      "enrollmentCount": 25,
+      "facultyId": "1",
+      "enrollmentCount": 35,
       "credits": 4,
       "department": "Computer Science"
+    },
+    {
+      "id": "3",
+      "name": "Database Systems",
+      "code": "CS301",
+      "facultyId": "1",
+      "enrollmentCount": 30,
+      "credits": 4,
+      "department": "Computer Science"
+    },
+    {
+      "id": "4",
+      "name": "Circuit Analysis",
+      "code": "EE201",
+      "facultyId": "2",
+      "enrollmentCount": 40,
+      "credits": 4,
+      "department": "Electrical Engineering"
+    },
+    {
+      "id": "5",
+      "name": "Digital Electronics",
+      "code": "EE301",
+      "facultyId": "2",
+      "enrollmentCount": 32,
+      "credits": 4,
+      "department": "Electrical Engineering"
+    },
+    {
+      "id": "6",
+      "name": "Software Engineering",
+      "code": "CS401",
+      "facultyId": "3",
+      "enrollmentCount": 28,
+      "credits": 3,
+      "department": "Computer Science"
+    },
+    {
+      "id": "7",
+      "name": "Calculus I",
+      "code": "MATH101",
+      "facultyId": "4",
+      "enrollmentCount": 50,
+      "credits": 4,
+      "department": "Mathematics"
+    },
+    {
+      "id": "8",
+      "name": "Linear Algebra",
+      "code": "MATH201",
+      "facultyId": "4",
+      "enrollmentCount": 38,
+      "credits": 3,
+      "department": "Mathematics"
     }
   ],
   "faculty": [
     {
       "id": "1",
       "name": "Dr. Robert Wilson",
-      "email": "robert@example.com",
+      "email": "robert.wilson@university.edu",
       "department": "Computer Science",
-      "courses": [
-        1,
-        2
-      ]
+      "courses": [1, 2, 3],
+      "title": "Professor",
+      "expertise": ["Programming", "Algorithms", "Databases"]
     },
     {
       "id": "2",
       "name": "Dr. Sarah Johnson",
-      "email": "sarah@example.com",
+      "email": "sarah.johnson@university.edu",
       "department": "Electrical Engineering",
-      "courses": [
-        3,
-        4
-      ]
+      "courses": [4, 5],
+      "title": "Associate Professor",
+      "expertise": ["Circuit Design", "Digital Systems"]
     },
     {
-      "id": "ba0c",
-      "name": "khandoker shamimul haque",
-      "email": "shamimul@gmail.com",
-      "department": "cse",
-      "courses": []
+      "id": "3",
+      "name": "Dr. Michael Brown",
+      "email": "michael.brown@university.edu",
+      "department": "Computer Science",
+      "courses": [6],
+      "title": "Assistant Professor",
+      "expertise": ["Software Engineering", "Project Management"]
+    },
+    {
+      "id": "4",
+      "name": "Dr. Emily Davis",
+      "email": "emily.davis@university.edu",
+      "department": "Mathematics",
+      "courses": [7, 8],
+      "title": "Professor",
+      "expertise": ["Calculus", "Linear Algebra", "Number Theory"]
     }
   ],
   "grades": [
     {
       "id": "1",
-      "studentId": 1,
-      "courseId": 1,
+      "studentId": "1",
+      "courseId": "1",
       "grade": "A",
       "semester": "Fall 2023"
     },
     {
       "id": "2",
-      "studentId": 1,
-      "courseId": 2,
+      "studentId": "1",
+      "courseId": "2",
+      "grade": "A-",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "3",
+      "studentId": "2",
+      "courseId": "4",
+      "grade": "A",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "4",
+      "studentId": "3",
+      "courseId": "1",
       "grade": "B+",
       "semester": "Fall 2023"
+    },
+    {
+      "id": "5",
+      "studentId": "4",
+      "courseId": "7",
+      "grade": "A+",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "6",
+      "studentId": "5",
+      "courseId": "1",
+      "grade": "B",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "7",
+      "studentId": "6",
+      "courseId": "11",
+      "grade": "A-",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "8",
+      "studentId": "7",
+      "courseId": "4",
+      "grade": "B+",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "9",
+      "studentId": "8",
+      "courseId": "7",
+      "grade": "A",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "10",
+      "studentId": "1",
+      "courseId": "3",
+      "grade": "B+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "11",
+      "studentId": "2",
+      "courseId": "5",
+      "grade": "A-",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "12",
+      "studentId": "3",
+      "courseId": "2",
+      "grade": "B",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "13",
+      "studentId": "4",
+      "courseId": "8",
+      "grade": "A",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "14",
+      "studentId": "5",
+      "courseId": "10",
+      "grade": "C+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "15",
+      "studentId": "6",
+      "courseId": "12",
+      "grade": "B+",
+      "semester": "Spring 2024"
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "Computer Science",
+      "head": "1",
+      "totalStudents": 120,
+      "totalFaculty": 8,
+      "courses": [1, 2, 3, 6]
+    },
+    {
+      "id": "2",
+      "name": "Electrical Engineering",
+      "head": "2",
+      "totalStudents": 95,
+      "totalFaculty": 6,
+      "courses": [4, 5]
+    },
+    {
+      "id": "3",
+      "name": "Mathematics",
+      "head": "4",
+      "totalStudents": 75,
+      "totalFaculty": 5,
+      "courses": [7, 8]
+    },
+    {
+      "id": "4",
+      "name": "Physics",
+      "head": "5",
+      "totalStudents": 60,
+      "totalFaculty": 4,
+      "courses": [11, 12, 13]
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "semester": "Fall 2023",
+      "capacity": 50,
+      "enrolled": 45,
+      "waitlist": 3
+    },
+    {
+      "id": "2",
+      "courseId": "2",
+      "semester": "Fall 2023",
+      "capacity": 40,
+      "enrolled": 35,
+      "waitlist": 0
+    },
+    {
+      "id": "3",
+      "courseId": "4",
+      "semester": "Fall 2023",
+      "capacity": 45,
+      "enrolled": 40,
+      "waitlist": 2
     }
   ]
 }
