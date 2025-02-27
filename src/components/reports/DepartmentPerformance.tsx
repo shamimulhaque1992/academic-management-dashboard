@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
+import { downloadCSV } from '@/lib/exportUtils';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -13,6 +14,7 @@ interface DepartmentStats {
   totalStudents: number;
   totalCourses: number;
   passingRate: number;
+  totalFaculty: number;
 }
 
 export function DepartmentPerformance() {
@@ -83,6 +85,18 @@ export function DepartmentPerformance() {
     },
   ];
 
+  const handleExport = () => {
+    const exportData = stats.map(dept => ({
+      'Department': dept.department,
+      'Total Students': dept.totalStudents,
+      'Average GPA': dept.averageGPA.toFixed(2),
+      'Passing Rate': `${dept.passingRate.toFixed(1)}%`,
+      'Total Faculty': dept.totalFaculty
+    }));
+    
+    downloadCSV(exportData, 'department-performance-report');
+  };
+
   if (loading) {
     return <div>Loading statistics...</div>;
   }
@@ -117,6 +131,15 @@ export function DepartmentPerformance() {
           height={400}
         />
       </div>
+
+      <div className="mt-8">
+        <button
+          onClick={handleExport}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+        >
+          Export CSV
+        </button>
+      </div>
     </div>
   );
 }
@@ -128,6 +151,7 @@ function processDepartmentData(students: any[], courses: any[], grades: any[]): 
     totalCourses: number;
     passingGrades: number;
     totalGrades: number;
+    totalFaculty: number;
   }>();
 
   // Process students and their grades
@@ -140,6 +164,7 @@ function processDepartmentData(students: any[], courses: any[], grades: any[]): 
         totalCourses: 0,
         passingGrades: 0,
         totalGrades: 0,
+        totalFaculty: 0,
       });
     }
 
@@ -178,5 +203,6 @@ function processDepartmentData(students: any[], courses: any[], grades: any[]): 
     totalStudents: stats.totalStudents,
     totalCourses: stats.totalCourses,
     passingRate: stats.passingGrades / stats.totalGrades,
+    totalFaculty: stats.totalStudents,
   }));
 } 

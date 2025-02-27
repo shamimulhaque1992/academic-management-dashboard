@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { PieChart, BarChart, ArrowUp, ArrowDown } from 'lucide-react';
+import { PieChart, BarChart, ArrowUp, ArrowDown, Download } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import { downloadCSV } from '@/lib/exportUtils';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -106,12 +107,38 @@ export function GradeDistribution() {
         data: selectedCourseData?.grades.map(g => g.count) || [],
       }];
 
+  const handleExport = () => {
+    if (!selectedCourseData) return;
+    
+    const exportData = selectedCourseData.grades.map(grade => ({
+      Grade: grade.grade,
+      Count: grade.count,
+      Percentage: `${grade.percentage.toFixed(1)}%`,
+      Trend: grade.trend
+    }));
+    
+    downloadCSV(
+      exportData,
+      `grade-distribution-${selectedCourseData.courseCode}-${selectedCourseData.semester}`
+    );
+  };
+
   if (loading) {
     return <div>Loading grade distribution...</div>;
   }
 
   return (
     <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Grade Distribution</h2>
+        <button
+          onClick={handleExport}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+        >
+          <Download className="w-4 h-4" />
+          Export CSV
+        </button>
+      </div>
       <div className="flex justify-between items-center">
         <div className="flex gap-2">
           {gradeData.map(course => (

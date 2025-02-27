@@ -2,75 +2,106 @@
   "students": [
     {
       "id": "1",
-      "name": "John Doe",
-      "email": "john.doe@university.edu",
+      "name": "Abdullah Rahman",
+      "email": "abdullah.rahman@university.edu",
       "year": 2,
       "gpa": 3.8,
       "department": "Computer Science",
-      "enrolledCourses": [1, 2, 3]
+      "enrolledCourses": [
+        2,
+        3,
+        1
+      ]
     },
     {
       "id": "2",
-      "name": "Jane Smith",
-      "email": "jane.smith@university.edu",
+      "name": "Fatima Akter",
+      "email": "fatima.akter@university.edu",
       "year": 3,
       "gpa": 3.9,
       "department": "Electrical Engineering",
-      "enrolledCourses": [2, 4, 5]
+      "enrolledCourses": [
+        2,
+        4,
+        5,
+        1
+      ]
     },
     {
       "id": "3",
-      "name": "Michael Johnson",
-      "email": "michael.j@university.edu",
+      "name": "Mohammad Hossain",
+      "email": "mohammad.h@university.edu",
       "year": 2,
       "gpa": 3.5,
       "department": "Computer Science",
-      "enrolledCourses": [1, 2, 6]
+      "enrolledCourses": [
+        2,
+        6,
+        1
+      ]
     },
     {
       "id": "4",
-      "name": "Emily Brown",
-      "email": "emily.b@university.edu",
+      "name": "Aisha Islam",
+      "email": "aisha.i@university.edu",
       "year": 4,
-      "gpa": 4.0,
+      "gpa": 4,
       "department": "Mathematics",
-      "enrolledCourses": [7, 8, 9]
+      "enrolledCourses": [
+        7,
+        8,
+        9
+      ]
     },
     {
       "id": "5",
-      "name": "David Wilson",
-      "email": "david.w@university.edu",
+      "name": "Kamal Uddin",
+      "email": "kamal.u@university.edu",
       "year": 1,
       "gpa": 3.2,
       "department": "Computer Science",
-      "enrolledCourses": [1, 10]
+      "enrolledCourses": [
+        10
+      ]
     },
     {
       "id": "6",
-      "name": "Sarah Davis",
-      "email": "sarah.d@university.edu",
+      "name": "Nusrat Jahan",
+      "email": "nusrat.j@university.edu",
       "year": 3,
       "gpa": 3.7,
       "department": "Physics",
-      "enrolledCourses": [11, 12, 13]
+      "enrolledCourses": [
+        11,
+        12,
+        13
+      ]
     },
     {
       "id": "7",
-      "name": "James Miller",
-      "email": "james.m@university.edu",
+      "name": "Imran Khan",
+      "email": "imran.k@university.edu",
       "year": 2,
       "gpa": 3.4,
       "department": "Electrical Engineering",
-      "enrolledCourses": [4, 5, 14]
+      "enrolledCourses": [
+        4,
+        5,
+        14
+      ]
     },
     {
       "id": "8",
-      "name": "Emma Wilson",
-      "email": "emma.w@university.edu",
+      "name": "Tasnim Rahman",
+      "email": "tasnim.r@university.edu",
       "year": 4,
       "gpa": 3.9,
       "department": "Mathematics",
-      "enrolledCourses": [7, 8, 15]
+      "enrolledCourses": [
+        7,
+        8,
+        15
+      ]
     }
   ],
   "courses": [
@@ -150,39 +181,82 @@
   "faculty": [
     {
       "id": "1",
-      "name": "Dr. Robert Wilson",
-      "email": "robert.wilson@university.edu",
+      "name": "Dr. Abdul Karim",
+      "email": "abdul.karim@university.edu",
       "department": "Computer Science",
-      "courses": [1, 2, 3],
+      "courses": [
+        1,
+        2
+      ],
       "title": "Professor",
-      "expertise": ["Programming", "Algorithms", "Databases"]
+      "expertise": [
+        "Programming",
+        "Algorithms",
+        "Databases"
+      ]
     },
     {
       "id": "2",
-      "name": "Dr. Sarah Johnson",
-      "email": "sarah.johnson@university.edu",
+      "name": "Dr. Nasreen Sultana",
+      "email": "nasreen.s@university.edu",
       "department": "Electrical Engineering",
-      "courses": [4, 5],
+      "courses": [
+        3,
+        4
+      ],
       "title": "Associate Professor",
-      "expertise": ["Circuit Design", "Digital Systems"]
+      "expertise": [
+        "Circuit Design",
+        "Digital Systems"
+      ]
     },
     {
       "id": "3",
-      "name": "Dr. Michael Brown",
-      "email": "michael.brown@university.edu",
+      "name": "Prof. Mahmud Hassan",
+      "email": "mahmud.h@university.edu",
       "department": "Computer Science",
-      "courses": [6],
+      "courses": [
+        5,
+        6
+      ],
       "title": "Assistant Professor",
-      "expertise": ["Software Engineering", "Project Management"]
+      "expertise": [
+        "Software Engineering",
+        "Project Management"
+      ]
     },
     {
       "id": "4",
-      "name": "Dr. Emily Davis",
-      "email": "emily.davis@university.edu",
+      "name": "Dr. Shahriar Ahmed",
+      "email": "shahriar.a@university.edu",
       "department": "Mathematics",
-      "courses": [7, 8],
+      "courses": [
+        7,
+        8
+      ],
       "title": "Professor",
-      "expertise": ["Calculus", "Linear Algebra", "Number Theory"]
+      "expertise": [
+        "Calculus",
+        "Linear Algebra",
+        "Number Theory"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Dr. Farhana Islam",
+      "email": "farhana.i@university.edu",
+      "department": "Physics",
+      "courses": [
+        11,
+        12,
+        13
+      ],
+      "title": "Professor",
+      "expertise": [
+        "Quantum Mechanics",
+        "Particle Physics",
+        "Astrophysics"
+      ]
     }
   ],
   "grades": [
@@ -195,100 +269,135 @@
     },
     {
       "id": "2",
-      "studentId": "1",
+      "studentId": "2",
       "courseId": "2",
       "grade": "A-",
       "semester": "Fall 2023"
     },
     {
       "id": "3",
-      "studentId": "2",
-      "courseId": "4",
-      "grade": "A",
-      "semester": "Fall 2023"
-    },
-    {
-      "id": "4",
       "studentId": "3",
       "courseId": "1",
       "grade": "B+",
       "semester": "Fall 2023"
     },
     {
-      "id": "5",
+      "id": "4",
       "studentId": "4",
       "courseId": "7",
       "grade": "A+",
       "semester": "Fall 2023"
     },
     {
-      "id": "6",
+      "id": "5",
       "studentId": "5",
       "courseId": "1",
       "grade": "B",
       "semester": "Fall 2023"
     },
     {
-      "id": "7",
+      "id": "6",
       "studentId": "6",
       "courseId": "11",
       "grade": "A-",
       "semester": "Fall 2023"
     },
     {
-      "id": "8",
+      "id": "7",
       "studentId": "7",
       "courseId": "4",
       "grade": "B+",
       "semester": "Fall 2023"
     },
     {
-      "id": "9",
+      "id": "8",
       "studentId": "8",
       "courseId": "7",
       "grade": "A",
       "semester": "Fall 2023"
     },
     {
-      "id": "10",
+      "id": "9",
       "studentId": "1",
       "courseId": "3",
       "grade": "B+",
       "semester": "Spring 2024"
     },
     {
-      "id": "11",
+      "id": "10",
       "studentId": "2",
       "courseId": "5",
       "grade": "A-",
       "semester": "Spring 2024"
     },
     {
-      "id": "12",
+      "id": "11",
       "studentId": "3",
       "courseId": "2",
-      "grade": "B",
+      "grade": "A+",
       "semester": "Spring 2024"
     },
     {
-      "id": "13",
+      "id": "12",
       "studentId": "4",
       "courseId": "8",
       "grade": "A",
       "semester": "Spring 2024"
     },
     {
-      "id": "14",
+      "id": "13",
       "studentId": "5",
       "courseId": "10",
       "grade": "C+",
       "semester": "Spring 2024"
     },
     {
-      "id": "15",
+      "id": "14",
       "studentId": "6",
       "courseId": "12",
       "grade": "B+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "a899",
+      "studentId": "1",
+      "courseId": "1",
+      "grade": "A+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "330d",
+      "studentId": "3",
+      "courseId": "1",
+      "grade": "A+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "1da4",
+      "studentId": "5",
+      "courseId": "1",
+      "grade": "A+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "b9a6",
+      "studentId": "2",
+      "courseId": "1",
+      "grade": "A+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "80df",
+      "studentId": "1",
+      "courseId": "2",
+      "grade": "A+",
+      "semester": "Spring 2024"
+    },
+    {
+      "id": "0abb",
+      "studentId": "2",
+      "courseId": "2",
+      "grade": "A+",
       "semester": "Spring 2024"
     }
   ],
@@ -299,7 +408,12 @@
       "head": "1",
       "totalStudents": 120,
       "totalFaculty": 8,
-      "courses": [1, 2, 3, 6]
+      "courses": [
+        1,
+        2,
+        3,
+        6
+      ]
     },
     {
       "id": "2",
@@ -307,7 +421,10 @@
       "head": "2",
       "totalStudents": 95,
       "totalFaculty": 6,
-      "courses": [4, 5]
+      "courses": [
+        4,
+        5
+      ]
     },
     {
       "id": "3",
@@ -315,7 +432,10 @@
       "head": "4",
       "totalStudents": 75,
       "totalFaculty": 5,
-      "courses": [7, 8]
+      "courses": [
+        7,
+        8
+      ]
     },
     {
       "id": "4",
@@ -323,7 +443,11 @@
       "head": "5",
       "totalStudents": 60,
       "totalFaculty": 4,
-      "courses": [11, 12, 13]
+      "courses": [
+        11,
+        12,
+        13
+      ]
     }
   ],
   "enrollments": [

@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { Medal, Trophy, Award } from 'lucide-react';
+import { Medal, Trophy, Award, Download } from 'lucide-react';
+import { downloadCSV } from '@/lib/exportUtils';
 import dynamic from 'next/dynamic';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -101,6 +102,35 @@ export function TopPerformers() {
     },
   ];
 
+  const handleExportOverall = () => {
+    const exportData = overallToppers.map((student, index) => ({
+      'Rank': index + 1,
+      'Name': student.name,
+      'Department': student.department,
+      'GPA': student.gpa.toFixed(2),
+      'Email': student.email
+    }));
+    
+    downloadCSV(exportData, 'overall-top-performers');
+  };
+
+  const handleExportCourse = () => {
+    if (!selectedCourse) return;
+    
+    const courseData = coursePerformers.find(c => c.courseId === selectedCourse);
+    if (!courseData) return;
+    
+    const exportData = courseData.topStudents.map((performer, index) => ({
+      'Rank': index + 1,
+      'Name': performer.studentName,
+      'Department': performer.department,
+      'Grade': performer.grade,
+      'Email': performer.studentName
+    }));
+    
+    downloadCSV(exportData, `top-performers-${courseData.courseCode}`);
+  };
+
   if (loading) {
     return <div>Loading performance data...</div>;
   }
@@ -108,11 +138,17 @@ export function TopPerformers() {
   return (
     <div className="space-y-8">
       {/* Institute Top Performers */}
-      <div>
-        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <Trophy className="h-6 w-6 text-yellow-500" />
-          Institute Top Performers
-        </h2>
+      <div className="bg-white rounded-lg shadow p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold">Overall Top Performers</h2>
+          <button
+            onClick={handleExportOverall}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+          >
+            <Download className="w-4 h-4" />
+            Export CSV
+          </button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             {overallToppers.map((student, index) => (
@@ -154,9 +190,20 @@ export function TopPerformers() {
       </div>
 
       {/* Course-wise Top Performers */}
-      <div>
-        <h2 className="text-xl font-semibold mb-4">Course-wise Top Performers</h2>
-        <div className="flex gap-2 mb-4">
+      <div className="bg-white rounded-lg shadow p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-semibold">Course-wise Top Performers</h2>
+          {selectedCourse && (
+            <button
+              onClick={handleExportCourse}
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+            >
+              <Download className="w-4 h-4" />
+              Export CSV
+            </button>
+          )}
+        </div>
+        <div className="flex gap-2 mb-6">
           {coursePerformers.map(course => (
             <button
               key={course.courseId}
@@ -173,30 +220,27 @@ export function TopPerformers() {
         </div>
 
         {selectedCourseData && (
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-medium mb-4">{selectedCourseData.courseName}</h3>
-            <div className="grid gap-4">
-              {selectedCourseData.topStudents.map((student, index) => (
-                <div
-                  key={student.studentId}
-                  className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-lg font-semibold text-gray-500">
-                      #{index + 1}
-                    </span>
-                    <div>
-                      <h4 className="font-medium">{student.studentName}</h4>
-                      <p className="text-sm text-gray-500">{student.department}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xl font-semibold">{student.grade}</p>
-                    <p className="text-sm text-gray-500">Grade</p>
+          <div className="grid gap-4">
+            {selectedCourseData.topStudents.map((student, index) => (
+              <div
+                key={student.studentId}
+                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-lg font-semibold text-gray-500">
+                    #{index + 1}
+                  </span>
+                  <div>
+                    <h4 className="font-medium">{student.studentName}</h4>
+                    <p className="text-sm text-gray-500">{student.department}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className="text-right">
+                  <p className="text-xl font-semibold">{student.grade}</p>
+                  <p className="text-sm text-gray-500">Grade</p>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
+import { Users, Download } from 'lucide-react';
+import { downloadCSV } from '@/lib/exportUtils';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -80,12 +82,33 @@ export function FacultyWorkload() {
     },
   ];
 
+  const handleExport = () => {
+    const exportData = workloadData.map(faculty => ({
+      'Faculty Name': faculty.facultyName,
+      'Course Count': faculty.courseCount,
+      'Student Count': faculty.studentCount,
+      'Average Class Size': Math.round(faculty.averageClassSize)
+    }));
+    
+    downloadCSV(exportData, 'faculty-workload-report');
+  };
+
   if (loading) {
     return <div>Loading workload data...</div>;
   }
 
   return (
     <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Faculty Workload</h2>
+        <button
+          onClick={handleExport}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+        >
+          <Download className="w-4 h-4" />
+          Export CSV
+        </button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {workloadData.map((data) => (
           <div

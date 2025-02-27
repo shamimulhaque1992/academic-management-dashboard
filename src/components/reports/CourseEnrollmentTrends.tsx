@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
+import { downloadCSV } from '@/lib/exportUtils';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -72,6 +73,19 @@ export function CourseEnrollmentTrends() {
       data: trend.enrollments.map(e => e.count),
     }));
 
+  const handleExport = () => {
+    const exportData = trends.map(course => ({
+      'Course Code': course.courseCode,
+      'Course Name': course.courseName,
+      'Enrolled': course.enrollments.reduce((total, e) => total + e.count, 0),
+      'Capacity': course.enrollments.length * 100, // Assuming a default capacity of 100 students per course
+      'Waitlist': 0, // Assuming no waitlist
+      'Fill Rate': `${(((course.enrollments.reduce((total, e) => total + e.count, 0) / (course.enrollments.length * 100)) * 100).toFixed(1))}%`
+    }));
+    
+    downloadCSV(exportData, 'course-enrollment-trends');
+  };
+
   if (loading) {
     return <div>Loading enrollment trends...</div>;
   }
@@ -107,6 +121,13 @@ export function CourseEnrollmentTrends() {
         type="line"
         height={400}
       />
+
+      <button
+        onClick={handleExport}
+        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+      >
+        Export CSV
+      </button>
     </div>
   );
 }
