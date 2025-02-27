@@ -1,0 +1,94 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "year": 2,
+      "gpa": 3.8,
+      "department": "Computer Science",
+      "enrolledCourses": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "year": 3,
+      "gpa": 3.9,
+      "department": "Electrical Engineering",
+      "enrolledCourses": [
+        2,
+        4
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "name": "Introduction to Programming",
+      "code": "CS101",
+      "facultyId": 1,
+      "enrollmentCount": 30,
+      "credits": 3,
+      "department": "Computer Science"
+    },
+    {
+      "id": "2",
+      "name": "Data Structures",
+      "code": "CS201",
+      "facultyId": 1,
+      "enrollmentCount": 25,
+      "credits": 4,
+      "department": "Computer Science"
+    }
+  ],
+  "faculty": [
+    {
+      "id": "1",
+      "name": "Dr. Robert Wilson",
+      "email": "robert@example.com",
+      "department": "Computer Science",
+      "courses": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Dr. Sarah Johnson",
+      "email": "sarah@example.com",
+      "department": "Electrical Engineering",
+      "courses": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ba0c",
+      "name": "khandoker shamimul haque",
+      "email": "shamimul@gmail.com",
+      "department": "cse",
+      "courses": []
+    }
+  ],
+  "grades": [
+    {
+      "id": "1",
+      "studentId": 1,
+      "courseId": 1,
+      "grade": "A",
+      "semester": "Fall 2023"
+    },
+    {
+      "id": "2",
+      "studentId": 1,
+      "courseId": 2,
+      "grade": "B+",
+      "semester": "Fall 2023"
+    }
+  ]
+}
